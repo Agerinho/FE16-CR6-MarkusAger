@@ -1,7 +1,6 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { CartService } from '../cart.service';
 import { PizzaArray } from '../pizzaArray';
-import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-order',
@@ -10,13 +9,6 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 })
 export class OrderComponent implements OnInit {
   cart: Array<PizzaArray> = [];
-  contactForm: FormGroup;
-  disabledSubmitButton: boolean = true;
-  @HostListener('input') oninput() {
-    if (this.contactForm.valid) {
-      this.disabledSubmitButton = false;
-    }
-  }
 
   constructor(private CS: CartService) { }
     
@@ -30,8 +22,10 @@ export class OrderComponent implements OnInit {
 
     var products = document.getElementById("products")
     var service = document.getElementById("service")
+    var subtotal = document.getElementById("subtotal")
     var discount = document.getElementById("discount")
     var total = document.getElementById("total")
+    var discountBox = document.getElementById("discountBox")
     var totalSum = 0
 
     if (this.cart.length > 0) {
@@ -48,10 +42,11 @@ export class OrderComponent implements OnInit {
       var discountSum = totalSum * 0.15
       discountSum = Math.round(discountSum * 100) / 100
       if (totalSum >= 40) {
+        subtotal.innerHTML = String(totalSum)
         discount.innerHTML = "-15%: €" + String(discountSum)
         totalSum -= discountSum
       } else {
-        discount.innerHTML = "-"
+        discountBox.style.display = 'none';;
       }
 
       totalSum = Math.round(totalSum * 100) / 100
