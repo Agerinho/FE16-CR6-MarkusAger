@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
 import { pizzas } from '../pizzas';
 import { PizzaArray } from '../pizzaArray';
 import { CartService } from '../cart.service';
@@ -10,15 +9,14 @@ import { CartService } from '../cart.service';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-  pizza: Array<PizzaArray> = pizzas;
-  cart: PizzaArray = {} as PizzaArray;
-  id: number = 0;
-  constructor(private route: ActivatedRoute, private CS: CartService) {
-    //this.CS = new CartService;
-  }
+  pizzas: Array<PizzaArray> = pizzas;
+  pizza: PizzaArray = {} as PizzaArray;
+  constructor(private CS: CartService) { }
 
-  addToCart() {
-
+  addToCart(id: number) {
+    alert("added to cart");
+    this.pizza = pizzas[id];
+    this.CS.addToCart(this.pizza);
   }
 
   ngOnInit(): void {

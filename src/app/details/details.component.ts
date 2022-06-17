@@ -12,9 +12,7 @@ import { CartService } from '../cart.service';
 export class DetailsComponent implements OnInit {
   pizza: PizzaArray = {} as PizzaArray;
   id: number = 0;
-  constructor(private route: ActivatedRoute, private CS: CartService) {
-    // this.CS = new CartService;
-  }
+  constructor(private route: ActivatedRoute, private CS: CartService) { }
 
   addToCart() {
     alert("added to cart");
