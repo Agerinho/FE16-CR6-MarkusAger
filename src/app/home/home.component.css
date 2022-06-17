@@ -1,0 +1,13 @@
+.hero {
+    height: 75vh;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../../assets/img/hero.jpg);
+}
+
+.chooseus {
+    background-color: rgba(0, 0, 0, .02);
+}
+
+.header {
+    font-size: 3rem;
+    font-family: 'Dancing Script', cursive;
+}

@@ -1,0 +1,7 @@
+<div class="container my-5">
+    <img src="{{pizza.image}}" class="img-fluid" alt="{{pizza.name}}">
+    <h3>{{ pizza.name }}</h3>
+    <h4>{{ pizza.price | currency:"EUR" }}</h4>
+    <p>{{ pizza.description }}</p>
+    <button class="btn btn-success" (click)="addToCart()">Add to Cart</button>
+</div>

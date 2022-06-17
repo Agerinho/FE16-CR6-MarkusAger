@@ -1,0 +1,22 @@
+.pizza:last-child hr {
+    height: 0;
+    margin: .5rem 0;
+}
+
+img {
+    object-fit: cover;
+}
+
+.header {
+    font-size: 3rem;
+    font-family: 'Dancing Script', cursive;
+}
+
+@media screen and (max-width: 991px) {
+    .pizza > div {
+        display: block !important;
+    }
+    .right p {
+        text-align: right;
+    }
+}

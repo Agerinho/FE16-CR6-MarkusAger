@@ -1,0 +1,9 @@
+.pizza-img {
+    height: 250px;
+    object-fit: cover;
+}
+
+.header {
+    font-size: 3rem;
+    font-family: 'Dancing Script', cursive;
+}

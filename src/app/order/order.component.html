@@ -1,0 +1,63 @@
+<div id="cart" class="container">
+    <div class="row">
+        <div class="cart col-lg-8 mt-5">
+            <div class="border rounded">
+                <div class="head bg-light">
+                    <h3 class="ps-3 lh-lg h3 m-0 tw-bold">Cart - {{cart.length}} item(s)</h3>
+                </div>
+                <div class="pizza" *ngFor="let pizza of cart">
+                    <div class="p-3 d-flex justify-content-between">
+                        <div class="left d-flex ">
+                            <img src="{{ pizza.image }} " class="pe-2" height="150" width="225" alt="{{ pizza.name }}">
+                            <div class="text">
+                                <p class="fw-bold">{{ pizza.name }}</p>
+                                <p>{{ pizza.description }}</p>
+                            </div>
+                        </div>
+                        <div class="right">
+                            <p class="fw-bold m-0">Price: {{ pizza.price | currency:"EUR" }}</p>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+        </div>
+        <div class="summary col-lg-4 mt-5">
+            <div class="border rounded">
+                <div class="head bg-light">
+                    <h3 class="ps-3 lh-lg h3 m-0 tw-bold">Summary</h3>
+                </div>
+                <div class="content p-3">
+                    <div class="products d-flex justify-content-between">
+                        <span>Products</span>
+                        <span id="products"></span>
+                    </div>
+                    <div class="service d-flex justify-content-between">
+                        <span>Service</span>
+                        <span id="service"></span>
+                    </div>
+                    <div class="discount d-flex justify-content-between">
+                        <span>Discount</span>
+                        <span id="discount"></span>
+                    </div>
+                    <hr>
+                    <div class="discount d-flex justify-content-between">
+                        <span class="fw-bold">Total amount<br>(including VAT) </span>
+                        <span class="fw-bold" id="total"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form">
+        <form class="text-left py-5" (ngSubmit)="onSubmit()">
+            <h4 class="h4 mb-4 header">Order Form</h4>
+            <p>please full up the information for the delivery</p>
+            <label for="Name">Name</label>
+            <input type="text" formControlName="Name" id="Name" class="form-control mb-4" placeholder="Name">
+            <label for="Adress">Adress</label>
+            <input type="text" formControlName="Adress" id="Adress" class="form-control mb-4" placeholder="Adress">
+            <button class="btn btn-primary" type="submit">Purchase</button>
+        </form>
+    </div>
+</div>
